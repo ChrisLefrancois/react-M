@@ -15,7 +15,7 @@ const ClassesSection = () => {
               Kid's Class
             </h3>
             <p className="text-gray-600">
-              Yoga Class for kids
+            Join our Kids' Yoga Class for playful poses, storytelling, and games! Engaging breath work and movement foster balance, flexibility, and relaxation in a fun, supportive environment.
             </p>
             <p className="text-gray-600 mt-4">
               Schedule: Mondays & Thursdays, 6 PM - 7:30 PM
@@ -27,7 +27,7 @@ const ClassesSection = () => {
               Teenager's Class
             </h3>
             <p className="text-gray-600">
-              Dynamic and fluid sequences connecting breath with movement suitable for all Teenager.
+            Experience our Teen Yoga Class! Dive into invigorating poses, mindful practices, and engaging activities. Discover balance, strength, and relaxation in a vibrant, supportive setting tailored for teens.
             </p>
             <p className="text-gray-600 mt-4">
               Schedule: Tuesdays & Fridays, 10:30 AM - 12:00 AM
@@ -39,7 +39,7 @@ const ClassesSection = () => {
               Adults's Class
             </h3>
             <p className="text-gray-600">
-              Dynamic and fluid sequences connecting breath with movement suitable for all Adults.
+            Step into our Adult Yoga Class! Embrace a journey of serene poses, mindful breathing, and rejuvenating practices. Cultivate strength, flexibility, and inner peace in a welcoming, nurturing environment for all levels.
             </p>
             <p className="text-gray-600 mt-4">
               Schedule: Tuesdays & Fridays, 9 AM - 10:30 AM
@@ -51,7 +51,7 @@ const ClassesSection = () => {
              Group's Class
             </h3>
             <p className="text-gray-600">
-              Dynamic and fluid sequences connecting breath with movement suitable for persons, group must be between 5-10 persons.
+            Explore our Small Group Yoga Sessions! Dive into personalized practices, bonding experiences, and tailored guidance. Together in a supportive setting, discover wellness, flexibility, and connection on your yoga journey.
             </p>
             <p className="text-gray-600 mt-4">
               Schedule: Tuesdays & Fridays, 9 AM - 10:30 AM

@@ -17,7 +17,9 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("sending form")
     try {
+      console.log(formData)
       await axios.post('http://localhost:3000/send-email', formData);
       console.log('Email sent successfully');
       // If you want to reset the form after successful submission
@@ -32,7 +34,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-start gap-8 p-6 bg-gray-100 rounded-lg shadow-lg">
+    <div className=" mx-auto flex flex-col md:flex-row items-start gap-8 p-6 bg-gray-100 rounded-lg shadow-lg">
       <form onSubmit={handleSubmit} className="flex-1">
         <h2 className="text-2xl font-semibold mb-6 text-center">Contact Us</h2>
         <div className="mb-4">
@@ -72,9 +74,9 @@ const ContactForm = () => {
           Send Message
         </button>
       </form>
-      <div className="flex-1 bg-gray-100 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+      <div className="flex-1 p-6 flex flex-col justify-between">
         <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact Information</h3>
-        <div className="bg-white rounded-lg shadow-md p-6 flex-1">
+        <div className="bg-white h-max rounded-lg shadow-md p-6 flex-1 space-y-20">
           <p className="text-gray-600 mb-2">
             <span className="font-semibold">Address:</span> 123 Yoga Street, City, Country
           </p>

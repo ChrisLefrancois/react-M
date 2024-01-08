@@ -8,7 +8,19 @@
 }
 
 .header-green {
-  background-color: #6AB36D;
+  background-color: #FFC0CB;
+}
+
+nav button {
+color: #8AA29E;
+}
+
+.text-green {
+  color: #8AA29E;
+}
+
+.button-color {
+  background-color: #E6A8A8;
 }
 
 .App-logo {

@@ -21,10 +21,19 @@ const ServicesSection = () => {
 
           <div className="bg-gray-100 rounded-lg shadow-md p-6">
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
-              Workshops & Retreats
+              Group Classes
             </h3>
             <p className="text-gray-600">
-              Dive deeper into your practice with specialized workshops and retreats at serene locations.
+            Regular classes for various skill levels, from beginners to advanced practitioners, held in a group setting.
+            </p>
+          </div>
+
+          <div className="bg-gray-100 rounded-lg shadow-md p-6">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">
+              Mindfulness and Meditation
+            </h3>
+            <p className="text-gray-600">
+            Guiding sessions focused on mindfulness practices, meditation techniques, and breathwork.
             </p>
           </div>
 
