@@ -6,6 +6,21 @@
   font-family: 'Great Vibes', cursive;
   /* Other styling properties if needed */
 }
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.popup.active {
+  display: block; /* Show the popup when 'active' class is applied */
+  /* Additional styles for the displayed popup */
+}
 
 .header-green {
   background-color: #FFC0CB;

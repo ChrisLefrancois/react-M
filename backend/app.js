@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
+const Booking = require('./models/Booking'); // Import your Booking model
 require('dotenv').config();
+const db = require('./db'); // Import the database connection file
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -35,6 +37,42 @@ app.post('/send-email', async (req, res) => {
   } catch (error) {
     console.error('Error sending email:', error);
     res.status(500).send('Error sending email');
+  }
+});
+
+app.post('/create-booking', async (req, res) => {
+  try {
+    // Extract data from the request body
+    const { name, email, date, className } = req.body;
+    console.log(req.body)
+
+    // Create a new booking using the Booking model
+    const newBooking = new Booking({
+      personName: name,
+      email,
+      date,
+      yogaClass: className
+    });
+    console.log(newBooking)
+    // Save the new booking to the database
+    const savedBooking = await newBooking.save();
+
+    res.status(201).json(savedBooking); // Send the created booking as a response
+  } catch (error) {
+    res.status(500).json({ error: 'Error creating booking' });
+  }
+});
+
+
+
+app.get('/api/bookings', async (req, res) => {
+  try {
+    // Retrieve all bookings from the database
+    const bookings = await Booking.find();
+    res.json(bookings);
+  } catch (error) {
+    console.error('Error fetching booking data:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

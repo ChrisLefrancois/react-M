@@ -5,7 +5,7 @@ const uri = process.env.MONDO_DB
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true, // Recommended for avoiding deprecation warnings
+  // Remove useCreateIndex option
 });
 
 const db = mongoose.connection;
