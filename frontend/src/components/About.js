@@ -1,5 +1,4 @@
 import React from 'react';
-import Maude from '../assets/Maude.jpeg';
 import heroBg from '../assets/hero-bg.jpg';
 
 const AboutSection = () => {

@@ -6,6 +6,54 @@
   font-family: 'Great Vibes', cursive;
   /* Other styling properties if needed */
 }
+/* Styles for the modal overlay */
+/* Styles for the modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Styles for the modal content */
+.modal-content {
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  z-index: 1001;
+}
+
+
+/* Styles for the modal header */
+.modal-header {
+  background-color: #f0f0f0;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for the close button */
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.rbc-calendar {
+  min-height: 500px ;
+}
 .popup {
   display: none;
   position: fixed;
