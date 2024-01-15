@@ -4,6 +4,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 import axios from 'axios';
 import Modal from 'react-modal';
+import AdminLogin from '../components/adminLogin';
 
 
 
@@ -14,6 +15,16 @@ const AdminDashboard = () => {
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [authenticated, setAuthenticated] = useState(false);
+
+
+  const handleLogin = () => {
+    setAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setAuthenticated(false);
+  };
 
   const openModal = (event) => {
     setSelectedEvent(event);
@@ -63,51 +74,66 @@ const AdminDashboard = () => {
     return uniqueEvents;
   }, []);
 
+
+
   console.log('All Events:', events);
 
   return (
     <div className="container mx-auto p-8">
-      <h1 className="text-4xl font-bold mb-6">Admin Dashboard</h1>
-
-      <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Bookings Calendar</h2>
-        <Calendar
-          localizer={localizer}
-          events={events}
-          startAccessor="start"
-          endAccessor="end"
-          onSelectEvent={openModal}
-          style={{ height: 800 }}
-        />
-      </div>
-
-      {/* Modal for displaying booking details */}
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Booking Details"
-        className="modal-content"
-        overlayClassName="modal-overlay"
-      >
-        <div className="modal-header">
-          <h2>Booking Details</h2>
-          <button className="close-button" onClick={closeModal}>Close</button>
-        </div>
-        {selectedEvent && (
-          <div className="modal-body">
-            <h3>{selectedEvent.title}</h3>
-            <ul>
-              {events
-                .filter((event) => event.title === selectedEvent.title)
-                .map((event) => (
-                  <li key={event.start.toString()}>
-                    {moment(event.start).format('MMMM Do YYYY, h:mm a')}
-                  </li>
-                ))}
-            </ul>
+      {authenticated ? (
+        <div>
+          <h1 className="text-4xl font-bold mb-6">Admin Dashboard</h1>
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">Bookings Calendar</h2>
+            <Calendar
+              localizer={localizer}
+              events={events}
+              startAccessor="start"
+              endAccessor="end"
+              onSelectEvent={openModal}
+              style={{ height: 800 }}
+            />
           </div>
-        )}
-      </Modal>
+
+          {/* Modal for displaying booking details */}
+          <Modal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            contentLabel="Booking Details"
+            className="modal-content"
+            overlayClassName="modal-overlay"
+          >
+            <div className="modal-header">
+              <h2>Booking Details</h2>
+              <button className="close-button" onClick={closeModal}>
+                Close
+              </button>
+            </div>
+            {selectedEvent && (
+              <div className="modal-body">
+                <h3>{selectedEvent.title}</h3>
+                <ul>
+                  {bookings
+                    .filter(
+                      (booking) =>
+                        booking.yogaClass === selectedEvent.title &&
+                        moment(booking.date).isSame(selectedEvent.start, 'day')
+                    )
+                    .map((booking) => (
+                      <li key={booking._id}>
+                        {`${booking.personName} - ${booking.email}`}
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            )}
+          </Modal>
+
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <AdminLogin onLogin={handleLogin} />
+      )}
     </div>
   );
 };

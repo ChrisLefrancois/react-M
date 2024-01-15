@@ -4,12 +4,16 @@ const nodemailer = require('nodemailer');
 const Booking = require('./models/Booking'); // Import your Booking model
 require('dotenv').config();
 const db = require('./db'); // Import the database connection file
+const classRoutes = require('./routes/classRoutes');
+
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/api', classRoutes);
 
 app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body;
@@ -62,8 +66,6 @@ app.post('/create-booking', async (req, res) => {
     res.status(500).json({ error: 'Error creating booking' });
   }
 });
-
-
 
 app.get('/api/bookings', async (req, res) => {
   try {
